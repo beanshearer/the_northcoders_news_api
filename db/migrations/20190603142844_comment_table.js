@@ -1,13 +1,13 @@
 
 exports.up = function(knex, Promise) {
     console.log('creating comments table...');
-    return knex.schema.createTable('comments', (articlesTable) => {
-      articlesTable.increments('comment_id').primary();
-      articlesTable.string('author').references('users.username');
-      articlesTable.integer('article_id').references('articles.article_id');
-      articlesTable.integer('votes').defaultTo(0);
-      articlesTable.string('body').notNullable();
-      articlesTable.date('created_at');
+    return knex.schema.createTable('comments', (commentsTable) => {
+      commentsTable.increments('comment_id').primary();
+      commentsTable.string('author').references('users.username');
+      commentsTable.integer('article_id').references('articles.article_id');
+      commentsTable.integer('votes').defaultTo(0);
+      commentsTable.timestamp('created_at').defaultTo(knex.fn.now());
+      commentsTable.text('body')
     });
 };
 
