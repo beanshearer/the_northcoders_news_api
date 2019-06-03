@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS northcoder_news_api;
-CREATE DATABASE northcoder_news_api;
+DROP DATABASE IF EXISTS northcoders_news;
+CREATE DATABASE northcoders_news;
 
-DROP DATABASE IF EXISTS northcoder_news_api_test;
-CREATE DATABASE northcoder_news_api_test;
+DROP DATABASE IF EXISTS northcoders_news_test;
+CREATE DATABASE northcoders_news_test;
