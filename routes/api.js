@@ -2,7 +2,7 @@ const apiRouter = require('express').Router();
 const { methodNotAllowed } = require('../errors');
 
 apiRouter
-  .route('/topics')
+  .route('/topics/')
   .get((req, res) => res.send({ ok: true }))
   .all(methodNotAllowed);
 
