@@ -1,7 +1,5 @@
 const { articlesData, commentsData, topicsData, usersData } = require('../data');
-const { convertingToPsqlTimeStamp } = require('../../utils/index')
-
-// console.log
+const { convertingToPsqlTimeStamp, keyPair, replacingKeys, changeKeyName } = require('../../utils/index');
 
 exports.seed = (knex, Promise) => {
     return knex.migrate
@@ -18,14 +16,17 @@ exports.seed = (knex, Promise) => {
         .returning("*")
       })
       .then(() => {
-        console.log(convertingToPsqlTimeStamp(articlesData))
         return knex.insert(convertingToPsqlTimeStamp(articlesData))
         .into("articles")
         .returning("*")
       })
-      .then(() => {
-        return knex.insert(convertingToPsqlTimeStamp(commentsData))
-        .into("articles")
+      .then(articles => {
+        const idTitle = keyPair(articles); 
+        const replacedWithId = replacingKeys(commentsData, idTitle)
+        const withTimeStamp = convertingToPsqlTimeStamp(replacedWithId)
+        const withAuthor = changeKeyName(withTimeStamp);
+        return knex.insert(withAuthor)
+        .into("comments")
         .returning("*")
       })
   };
