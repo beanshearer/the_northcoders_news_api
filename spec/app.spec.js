@@ -30,7 +30,7 @@ describe('/', () => {
     describe('/user/:users', () => {
       it('GET status:200', () => {
         return request(app)
-          .get('/api/user/butter_bridge')
+          .get('/api/users/butter_bridge')
           .expect(200)
           .then(({ body }) => {
             expect(body.user).to.eql({
@@ -38,6 +38,22 @@ describe('/', () => {
               name: 'jonny',
               avatar_url: 'https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg',
             });
+          });
+      });
+      it('GET status:404', () => {
+        return request(app)
+          .get('/api/users/busdfr_bridgsdfsdf')
+          .expect(404)
+          .then(({ body }) => {
+            expect(body.msg).to.eql('user not found');
+          });
+      });
+      it('GET status:404', () => {
+        return request(app)
+          .get('/api/users/')
+          .expect(404)
+          .then(({ body }) => {
+            expect(body.msg).to.eql('user not found');
           });
       });
     });

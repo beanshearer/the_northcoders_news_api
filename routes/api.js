@@ -9,7 +9,7 @@ apiRouter
   .all(methodNotAllowed);
 
 apiRouter
-  .route('/users/:username')
+  .route('/users/:username/')
   .get(sendUser)
   .all(methodNotAllowed);
 
