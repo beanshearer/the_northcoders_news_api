@@ -57,5 +57,15 @@ describe('/', () => {
           });
       });
     });
+    describe('/articles', () => {
+      it.only('GET status:200', () => {
+        return request(app)
+          .get('/api/articles/3')
+          .expect(200)
+          .then(({ body }) => {
+            expect(body.article).to.have.keys('author','title','article_id','body','topic','created_at','votes','comment_count')
+          });
+      });
+    });
   });
 });

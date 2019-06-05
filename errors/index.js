@@ -13,13 +13,12 @@ exports.handle500 = (err, req, res, next) => {
   };
   
 exports.handleCustomErrors = (err, req, res, next) => {
-    if (err.message) {
-
+  console.log(err.status)
+    if (err.message && err.status) {
       res.status(err.status).send({ msg : err.message});
     } else {
       next(err)
     }
-
   };
   
   // exports.handleCustomErrors = (err, req, res, next) => {
