@@ -3,25 +3,23 @@ exports.routeNotFound = (req, res) => {
   };
   
 exports.methodNotAllowed = (req, res) => {
-  console.log(res, "<---")
     res.status(405).send({ msg: 'Method Not Allowed' });
   };
   
 exports.handle500 = (err, req, res, next) => {
     console.log(err)
     res.status(500).send({ msg: 'Internal Server Error' });
-  };
+};
   
 exports.handleCustomErrors = (err, req, res, next) => {
-  console.log(err.status)
     if (err.message && err.status) {
       res.status(err.status).send({ msg : err.message});
-    } else {
-      next(err)
-    }
-  };
-  
-  // exports.handleCustomErrors = (err, req, res, next) => {
-  //   console.log(err)
-  //   res.status(err.status).send(err.message);
-  // };
+    } else next(err)
+};
+
+exports.handlePsqlErrors = (err, req, res, next) => {
+  const psqlCodeErrors = ['22P02', '23503']
+    if (psqlCodeErrors.includes(err.code)) {
+      res.status(400).send({ msg : 'bad request'});
+    } else next(err)
+};

@@ -15,4 +15,40 @@ const fetchArticle = ({ article_id }) => {
         });
 }
 
-module.exports = { fetchArticle }
+const increaseVote = ({ article_id }, { inc_votes }) => {
+    console.log(inc_votes, article_id)
+    return connection('articles')
+        .where({ 'article_id' : article_id })
+        .increment('votes', inc_votes)
+        .returning('*')
+        .then(article => { if (article.length < 1) {
+            return Promise.reject({ status: 404, message: "article not found" })
+            } else return article[0]
+        });
+}
+
+const addComment = ({ article_id }, username, body) => {
+    return connection('comments')
+        .insert({author:username, article_id, body})
+        .returning('*')
+        .then(comment => { if (comment.length < 1) {
+            return Promise.reject({ status: 400, message: "comment not added" })
+            } else return comment[0].body
+        });
+}
+
+const fetchComments = ({ article_id }) => {
+    console.log('fred')
+    return connection
+        .select('comment_id', 'author', 'votes', 'created_at', 'body')
+        .from('comments')
+        .where({ 'article_id' : article_id })
+        .returning('*')
+        .then(comment => { if (comment.length < 1) {
+            return Promise.reject({ status: 400, message: "no comments" })
+            } else return comment
+        });
+}
+
+
+module.exports = { fetchArticle, increaseVote, addComment, fetchComments }
