@@ -1,4 +1,4 @@
-const { fetchArticle, increaseVote, addComment, fetchComments, fetchArticles } = require('../models/articles-model')
+const { fetchArticle, increaseVote, addComment, fetchComments, fetchArticles, checkTopicOrColumnExists } = require('../models/articles-model')
 
 const sendArticle = (req, res, next) => {
     fetchArticle(req.params).then(article => {
@@ -14,7 +14,7 @@ const updatedArticle = (req, res, next) => {
 
 const updatedComment = (req, res, next) => {
     addComment(req.params, req.body.username, req.body.body).then(comment => {
-        res.status(200).send({ comment })
+        res.status(201).send({ comment })
     }).catch(err => next(err))
 }
 
@@ -25,7 +25,9 @@ const sendComments = (req, res, next) => {
 }
 
 const sendArticles = (req, res, next) => {
-    fetchArticles(req.query).then(articles => {
+    checkTopicOrColumnExists(req.query).then(() => {
+        return fetchArticles(req.query)
+    }).then(articles => {
         res.status(200).send({ articles })
     }).catch(err => next(err))
 }

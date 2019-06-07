@@ -100,6 +100,24 @@ describe('/', () => {
                 expect(body.msg).to.equal('article not found')
               });
           });
+          it("status:200 - increases the vote by 1", () => {
+            return request(app)
+              .patch('/api/articles/1')
+              .send({ inc_votes: 1 })
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.article.votes).to.equal(101)
+              });
+          });
+          it("status:200 - doesn't increase the vote when an empty object is send", () => {
+            return request(app)
+              .patch('/api/articles/1')
+              .send({})
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.article.votes).to.equal(100)
+              });
+          });
           it('status:400', () => {
             return request(app)
               .patch('/api/articles/hjbskbhsd')
@@ -121,11 +139,11 @@ describe('/', () => {
         });
         describe('/comments', () => {
           describe('POST', () => {
-            it('status:200', () => {
+            it('status:201', () => {
               return request(app)
                 .post('/api/articles/1/comments')
                 .send({  body : "LEAVE, GET OUT, LEAVE, RIGHT NOW", username : 'icellusedkars' })
-                .expect(200)
+                .expect(201)
                 .then(({ body }) => {
                   expect(body.comment).to.equal("LEAVE, GET OUT, LEAVE, RIGHT NOW")
                 });
@@ -158,12 +176,12 @@ describe('/', () => {
                   expect(body.comments).to.be.a('array')
                 });
             });
-            it('status:200 defaults to ascending comment_id', () => {
+            it('status:200 defaults to ascending created_at', () => {
               return request(app)
                 .get('/api/articles/1/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comments).to.be.ascendingBy('comment_id')
+                  expect(body.comments).to.be.ascendingBy('created_at')
                 });
             });
             it('status:200, sort by author in descending order', () => {
@@ -182,12 +200,12 @@ describe('/', () => {
                   expect(body.msg).to.equal('column "autsdfr" does not exist')
                 });
             });
-            it("status:400, gets error when comments can't be found", () => {
+            it("status:200, returns an empty array when there are no comments", () => {
               return request(app)
                 .get('/api/articles/4000/comments')
-                .expect(400)
+                .expect(200)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('article has no comments or does not exist')
+                  expect(body.comments).to.eql([])
                 });
             });
           });
@@ -218,7 +236,7 @@ describe('/', () => {
               .get('/api/articles/?sort_by=topic')
               .expect(200)
               .then(({ body }) => {
-                expect(body.articles).to.be.ascendingBy('topic')
+                expect(body.articles).to.be.descendingBy('topic')
               });
           });
           it('status:400', () => {
@@ -234,7 +252,7 @@ describe('/', () => {
               .get('/api/articles/?sort_by=topic')
               .expect(200)
               .then(({ body }) => {
-                expect(body.articles).to.be.ascendingBy('topic')
+                expect(body.articles).to.be.descendingBy('topic')
               });
           });
           it('status:200 returns an array of descending by article_id', () => {
@@ -259,6 +277,14 @@ describe('/', () => {
               .expect(200)
               .then(({ body }) => {
                 expect(body.articles[0].topic).to.equal('cats')
+              });
+          });
+          it('status:200 returns an array of descending by article_id', () => {
+            return request(app)
+              .get('/api/articles/?topic=menchildren')
+              .expect(404)
+              .then(({ body }) => {
+                expect(body.msg).to.equal('no topic')
               });
           });
         });

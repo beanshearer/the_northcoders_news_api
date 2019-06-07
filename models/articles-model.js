@@ -15,7 +15,7 @@ const fetchArticle = ({ article_id }) => {
         });
 }
 
-const increaseVote = ({ article_id }, { inc_votes }) => {
+const increaseVote = ({ article_id }, { inc_votes = 0 }) => {
     return connection('articles')
         .where({ 'article_id' : article_id })
         .increment('votes', inc_votes)
@@ -28,7 +28,7 @@ const increaseVote = ({ article_id }, { inc_votes }) => {
 
 const addComment = ({ article_id }, username, body) => {
     return connection('comments')
-        .insert({author:username, article_id, body})
+        .insert({ author:username, article_id, body })
         .returning('*')
         .then(comment => { if (comment.length < 1) {
             return Promise.reject({ status: 400, message: "comment not added" })
@@ -36,20 +36,17 @@ const addComment = ({ article_id }, username, body) => {
         });
 }
 
-const fetchComments = ({ article_id }, { sort_by = 'comment_id' , order = 'asc' } ) => {
+const fetchComments = ({ article_id }, { sort_by = 'created_at' , order = 'asc' } ) => {
     return connection
         .select('comment_id', 'author', 'votes', 'created_at', 'body')
         .from('comments')
         .where({ 'article_id' : article_id })
         .orderBy(sort_by, order)
         .returning('*')
-        .then(comment => { if (comment.length < 1) {
-            return Promise.reject({ status: 400, message: "article has no comments or does not exist" })
-            } else return comment
-        });
+        .then(comment => { return comment });
 }
 
-const fetchArticles = ({ sort_by = 'articles.article_id', order = 'asc', author, topic }) => {
+const fetchArticles = ({ sort_by = 'articles.article_id', order = 'desc', author, topic }) => {
     return connection
         .select('articles.author', 'articles.title', 'articles.article_id', 'articles.created_at', 'articles.votes', 'articles.topic')
         .from('articles')
@@ -68,5 +65,18 @@ const fetchArticles = ({ sort_by = 'articles.article_id', order = 'asc', author,
         });
 }
 
+const checkTopicOrColumnExists = ({ topic, sort_by = '*' }) => {
+    return connection 
+        .select(sort_by)
+        .from('articles')
+        .modify((query) => {
+            if (topic) query.where({ topic })
+        })
+        .then(top => {
+            if (top.length < 1) {
+                return Promise.reject({ status: 404, message: "no topic" })
+            } else return top
+        });
+}
 
-module.exports = { fetchArticle, increaseVote, addComment, fetchComments, fetchArticles }
+module.exports = { fetchArticle, increaseVote, addComment, fetchComments, fetchArticles, checkTopicOrColumnExists }
