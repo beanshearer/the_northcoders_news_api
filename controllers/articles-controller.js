@@ -1,4 +1,4 @@
-const { fetchArticle, increaseVote, addComment, fetchComments } = require('../models/articles-model')
+const { fetchArticle, increaseVote, addComment, fetchComments, fetchArticles } = require('../models/articles-model')
 
 const sendArticle = (req, res, next) => {
     fetchArticle(req.params).then(article => {
@@ -19,10 +19,15 @@ const updatedComment = (req, res, next) => {
 }
 
 const sendComments = (req, res, next) => {
-    console.log('simon')
-    fetchComments(req.params).then(comments => {
+    fetchComments(req.params, req.query).then(comments => {
         res.status(200).send({ comments })
     }).catch(err => next(err))
 }
 
-module.exports = { sendArticle, updatedArticle, updatedComment, sendComments }
+const sendArticles = (req, res, next) => {
+    fetchArticles(req.query).then(articles => {
+        res.status(200).send({ articles })
+    }).catch(err => next(err))
+}
+
+module.exports = { sendArticle, updatedArticle, updatedComment, sendComments, sendArticles }

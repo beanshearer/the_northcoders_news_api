@@ -23,7 +23,6 @@ exports.seed = (knex, Promise) => {
       .then(articles => {
         const idTitle = keyPair(articles); 
         const replacedWithId = replacingKeys(commentsData, idTitle)
-        // console.log(replacedWithId)
         const withTimeStamp = convertingToPsqlTimeStamp(replacedWithId)
         const withAuthor = changeKeyName(withTimeStamp);
         return knex.insert(withAuthor)

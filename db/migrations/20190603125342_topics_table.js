@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-    console.log('creating topics table...');
+    console.log('creating topics tables...');
     return knex.schema.createTable('topics', (topicsTable) => {
       topicsTable.string('slug').primary().unique();
       topicsTable.string('description').notNullable();

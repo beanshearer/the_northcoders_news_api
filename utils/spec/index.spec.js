@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const { convertingToPsqlTimeStamp, keyPair, replacingKeys, changeKeyName } = require("../index")
 const { articlesData } = require('../../db/data/');
 
-console.log(articlesData)
+(articlesData)
 
 describe('convertingToPsqlTimeStamp()', () => {
     it('coverts into the psql format', () => {

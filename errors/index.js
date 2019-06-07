@@ -12,13 +12,15 @@ exports.handle500 = (err, req, res, next) => {
 };
   
 exports.handleCustomErrors = (err, req, res, next) => {
+    console.log(err)
     if (err.message && err.status) {
       res.status(err.status).send({ msg : err.message});
     } else next(err)
 };
 
 exports.handlePsqlErrors = (err, req, res, next) => {
-  const psqlCodeErrors = ['22P02', '23503']
+    console.log(err)
+  const psqlCodeErrors = ['22P02', '23503', '42703']
     if (psqlCodeErrors.includes(err.code)) {
       res.status(400).send({ msg : 'bad request'});
     } else next(err)
