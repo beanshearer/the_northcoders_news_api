@@ -77,7 +77,7 @@ describe('/', () => {
               .get('/api/articles/30BassSAND')
               .expect(400)
               .then(({ body }) => {
-                expect(body.msg).to.equal('bad request')
+                expect(body.msg).to.equal('invalid input syntax for integer: "30BassSAND"')
               });
           });
         });
@@ -106,7 +106,7 @@ describe('/', () => {
               .send({  inc_votes: 10 })
               .expect(400)
               .then(({ body }) => {
-                expect(body.msg).to.equal('bad request')
+                expect(body.msg).to.equal('invalid input syntax for integer: "hjbskbhsd"')
               });
           });
           it('status:400', () => {
@@ -115,7 +115,7 @@ describe('/', () => {
               .send({  inc_votes: 'bread' })
               .expect(400)
               .then(({ body }) => {
-                expect(body.msg).to.equal('bad request')
+                expect(body.msg).to.equal('invalid input syntax for integer: "NaN"')
               });
           });
         });
@@ -136,7 +136,7 @@ describe('/', () => {
                 .send({  body : "LEAVE, GET OUT, LEAVE, RIGHT NOW", username : 'icellusedkars' })
                 .expect(400)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('bad request')
+                  expect(body.msg).to.equal('insert or update on table "comments" violates foreign key constraint "comments_article_id_foreign"')
                 });
             });
             it('status:400', () => {
@@ -145,7 +145,7 @@ describe('/', () => {
                 .send({  body : 4 })
                 .expect(400)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('bad request')
+                  expect(body.msg).to.equal('insert or update on table "comments" violates foreign key constraint "comments_article_id_foreign"')
                 });
             });
           });
@@ -179,7 +179,7 @@ describe('/', () => {
                 .get('/api/articles/1/comments?sort_by=autsdfr&order=bread')
                 .expect(400)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('bad request')
+                  expect(body.msg).to.equal('column "autsdfr" does not exist')
                 });
             });
             it("status:400, gets error when comments can't be found", () => {
@@ -201,7 +201,7 @@ describe('/', () => {
               .expect(200)
               .then(({ body }) => {
                 expect(body.articles).to.be.a('array')
-                expect(body.articles[0]).to.have.keys('author','title','article_id','body','topic','created_at','votes','comment_count')
+                expect(body.articles[0]).to.have.keys('author','title','article_id','topic','created_at','votes','comment_count')
               });
           });
           it('status:200 returns an array of article objects', () => {
@@ -210,7 +210,7 @@ describe('/', () => {
               .expect(200)
               .then(({ body }) => {
                 expect(body.articles).to.be.a('array')
-                expect(body.articles[0]).to.have.keys('author','title','article_id','body','topic','created_at','votes','comment_count')
+                expect(body.articles[0]).to.have.keys('author','title','article_id','topic','created_at','votes','comment_count')
               });
           });
           it('status:200 returns an array of article objects sorted by topic', () => {
@@ -219,6 +219,14 @@ describe('/', () => {
               .expect(200)
               .then(({ body }) => {
                 expect(body.articles).to.be.ascendingBy('topic')
+              });
+          });
+          it('status:400', () => {
+            return request(app)
+              .get('/api/articles/?sort_by=topdfgisdc')
+              .expect(400)
+              .then(({ body }) => {
+                expect(body.msg).to.equal('column "topdfgisdc" does not exist')
               });
           });
           it('status:200 returns an array of article objects sorted by topic', () => {
@@ -273,7 +281,7 @@ describe('/', () => {
             .send({  inc_votes: 'asdgasgh' })
             .expect(400)
             .then(({ body }) => {
-              expect(body.msg).to.equal('bad request')
+              expect(body.msg).to.equal('invalid input syntax for integer: "NaN"')
             });
         });
         it('status:404', () => {
@@ -291,7 +299,7 @@ describe('/', () => {
             .send({  inc_votes: '5' })
             .expect(400)
             .then(({ body }) => {
-              expect(body.msg).to.equal('bad request')
+              expect(body.msg).to.equal('invalid input syntax for integer: "535434gsdhj5"')
             });
         });
       });
@@ -317,7 +325,7 @@ describe('/', () => {
             .delete('/api/comments/sdfhgsdf')
             .expect(400)
             .then(({ body }) => {
-              expect(body.msg).to.eql('bad request')
+              expect(body.msg).to.eql('invalid input syntax for integer: "sdfhgsdf"')
             });
         });
       });

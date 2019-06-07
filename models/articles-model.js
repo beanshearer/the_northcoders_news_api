@@ -49,9 +49,9 @@ const fetchComments = ({ article_id }, { sort_by = 'comment_id' , order = 'asc' 
         });
 }
 
-const fetchArticles = ({ sort_by = 'article_id', order = 'asc', author, topic }) => {
+const fetchArticles = ({ sort_by = 'articles.article_id', order = 'asc', author, topic }) => {
     return connection
-        .select('articles.*')
+        .select('articles.author', 'articles.title', 'articles.article_id', 'articles.created_at', 'articles.votes', 'articles.topic')
         .from('articles')
         .count({ comment_count: 'comments.article_id'})
         .leftJoin('comments', 'comments.article_id', 'articles.article_id')

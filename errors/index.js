@@ -7,21 +7,18 @@ exports.methodNotAllowed = (req, res) => {
   };
   
 exports.handle500 = (err, req, res, next) => {
-    console.log(err)
     res.status(500).send({ msg: 'Internal Server Error' });
 };
   
 exports.handleCustomErrors = (err, req, res, next) => {
-    console.log(err)
     if (err.message && err.status) {
       res.status(err.status).send({ msg : err.message});
     } else next(err)
 };
 
 exports.handlePsqlErrors = (err, req, res, next) => {
-    console.log(err)
   const psqlCodeErrors = ['22P02', '23503', '42703']
     if (psqlCodeErrors.includes(err.code)) {
-      res.status(400).send({ msg : 'bad request'});
+      res.status(400).send({ msg : err.message.split(' - ')[1]});
     } else next(err)
 };
