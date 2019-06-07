@@ -36,7 +36,7 @@ const addComment = ({ article_id }, username, body) => {
         });
 }
 
-const fetchComments = ({ article_id }, { sort_by = 'created_at' , order = 'asc' } ) => {
+const fetchComments = ({ article_id }, { sort_by = 'created_at' , order = 'desc' } ) => {
     return connection
         .select('comment_id', 'author', 'votes', 'created_at', 'body')
         .from('comments')
@@ -46,7 +46,7 @@ const fetchComments = ({ article_id }, { sort_by = 'created_at' , order = 'asc' 
         .then(comment => { return comment });
 }
 
-const fetchArticles = ({ sort_by = 'articles.article_id', order = 'desc', author, topic }) => {
+const fetchArticles = ({ sort_by = 'articles.created_at', order = 'desc', author, topic }) => {
     return connection
         .select('articles.author', 'articles.title', 'articles.article_id', 'articles.created_at', 'articles.votes', 'articles.topic')
         .from('articles')
@@ -69,7 +69,7 @@ const checkTopicOrColumnExists = ({ topic, sort_by = '*' }) => {
     return connection 
         .select(sort_by)
         .from('articles')
-        .modify((query) => {
+        .modify(query => {
             if (topic) query.where({ topic })
         })
         .then(top => {

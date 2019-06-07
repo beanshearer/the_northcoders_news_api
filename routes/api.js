@@ -17,11 +17,13 @@ apiRouter
 
 apiRouter
   .use('/articles', articlesRouter)
+  .all(methodNotAllowed);
 
 apiRouter
   .route('/comments/:comment_id')
   .patch(updatedComment)
   .delete(handleCommentToDelete)
+  .all(methodNotAllowed);
 
 
 module.exports = apiRouter;

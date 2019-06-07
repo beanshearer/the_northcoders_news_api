@@ -148,22 +148,22 @@ describe('/', () => {
                   expect(body.comment).to.equal("LEAVE, GET OUT, LEAVE, RIGHT NOW")
                 });
             });
-            it('status:400', () => {
+            it('status:404', () => {
               return request(app)
                 .post('/api/articles/4000/comments')
                 .send({  body : "LEAVE, GET OUT, LEAVE, RIGHT NOW", username : 'icellusedkars' })
-                .expect(400)
+                .expect(404)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('insert or update on table "comments" violates foreign key constraint "comments_article_id_foreign"')
+                  expect(body.msg).to.equal('article not found')
                 });
             });
             it('status:400', () => {
               return request(app)
-                .post('/api/articles/4000/comments')
+                .post('/api/articles/hsdfhhsdf/comments')
                 .send({  body : 4 })
                 .expect(400)
                 .then(({ body }) => {
-                  expect(body.msg).to.equal('insert or update on table "comments" violates foreign key constraint "comments_article_id_foreign"')
+                  expect(body.msg).to.equal('invalid input syntax for integer: "hsdfhhsdf"')
                 });
             });
           });
@@ -173,15 +173,15 @@ describe('/', () => {
                 .get('/api/articles/1/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comments).to.be.a('array')
+                  expect(body.comment).to.be.a('array')
                 });
             });
-            it('status:200 defaults to ascending created_at', () => {
+            it('status:200 defaults to descending created_at', () => {
               return request(app)
                 .get('/api/articles/1/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comments).to.be.ascendingBy('created_at')
+                  expect(body.comment).to.be.descendingBy('created_at')
                 });
             });
             it('status:200, sort by author in descending order', () => {
@@ -189,7 +189,7 @@ describe('/', () => {
                 .get('/api/articles/1/comments?sort_by=author&order=desc')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comments).to.be.descendingBy('author')
+                  expect(body.comment).to.be.descendingBy('author')
                 });
             });
             it('status:400, gets bad request when sending a bad query', () => {
@@ -205,7 +205,7 @@ describe('/', () => {
                 .get('/api/articles/4000/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comments).to.eql([])
+                  expect(body.comment).to.eql([])
                 });
             });
           });
@@ -220,6 +220,14 @@ describe('/', () => {
               .then(({ body }) => {
                 expect(body.articles).to.be.a('array')
                 expect(body.articles[0]).to.have.keys('author','title','article_id','topic','created_at','votes','comment_count')
+              });
+          });
+          it('status:200 returns the corrent comment count', () => {
+            return request(app)
+              .get('/api/articles/')
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.articles[0].comment_count).to.equal('13')
               });
           });
           it('status:200 returns an array of article objects', () => {
@@ -255,12 +263,12 @@ describe('/', () => {
                 expect(body.articles).to.be.descendingBy('topic')
               });
           });
-          it('status:200 returns an array of descending by article_id', () => {
+          it('status:200 returns an array of descending by created_at', () => {
             return request(app)
               .get('/api/articles/?order=desc')
               .expect(200)
               .then(({ body }) => {
-                expect(body.articles).to.be.descendingBy('article_id')
+                expect(body.articles).to.be.descendingBy('created_at')
               });
           });
           it("status:200 returns an array of one author's articles", () => {

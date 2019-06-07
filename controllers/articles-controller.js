@@ -13,15 +13,20 @@ const updatedArticle = (req, res, next) => {
 }
 
 const updatedComment = (req, res, next) => {
-    addComment(req.params, req.body.username, req.body.body).then(comment => {
+    fetchArticle(req.params)
+        .then(() => { 
+            return addComment(req.params, req.body.username, req.body.body)
+        })
+        .then(comment => {
         res.status(201).send({ comment })
     }).catch(err => next(err))
 }
 
 const sendComments = (req, res, next) => {
-    fetchComments(req.params, req.query).then(comments => {
-        res.status(200).send({ comments })
-    }).catch(err => next(err))
+    fetchComments(req.params, req.query)
+        .then(comment => res.status(200)
+        .send({ comment }))
+        .catch(err => next(err))
 }
 
 const sendArticles = (req, res, next) => {
