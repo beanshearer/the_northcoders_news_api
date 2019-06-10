@@ -25,7 +25,6 @@ const updatedComment = (req, res, next) => {
 const sendComments = (req, res, next) => {
     fetchArticle(req.params)
         .then(() => {
-            console.log(req.params)
             return fetchComments(req.params, req.query)
         })
         .then(comments => res.status(200)
