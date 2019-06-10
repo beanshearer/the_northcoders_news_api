@@ -148,6 +148,15 @@ describe('/', () => {
                   expect(body.comment).to.equal("LEAVE, GET OUT, LEAVE, RIGHT NOW")
                 });
             });
+            it('status:400', () => {
+              return request(app)
+                .post('/api/articles/1/comments')
+                .send({ body: 'this is a comment' })
+                .expect(400)
+                .then(({ body }) => {
+                  expect(body.msg).to.equal('null value in column "author" violates not-null constraint')
+                });
+            });
             it('status:404', () => {
               return request(app)
                 .post('/api/articles/4000/comments')
@@ -167,13 +176,13 @@ describe('/', () => {
                 });
             });
           });
-          describe('GET', () => {
+          describe.only('GET', () => {
             it('status:200 returns an array', () => {
               return request(app)
                 .get('/api/articles/1/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comment).to.be.a('array')
+                  expect(body.comments).to.be.a('array')
                 });
             });
             it('status:200 defaults to descending created_at', () => {
@@ -181,7 +190,7 @@ describe('/', () => {
                 .get('/api/articles/1/comments')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comment).to.be.descendingBy('created_at')
+                  expect(body.comments).to.be.descendingBy('created_at')
                 });
             });
             it('status:200, sort by author in descending order', () => {
@@ -189,7 +198,7 @@ describe('/', () => {
                 .get('/api/articles/1/comments?sort_by=author&order=desc')
                 .expect(200)
                 .then(({ body }) => {
-                  expect(body.comment).to.be.descendingBy('author')
+                  expect(body.comments).to.be.descendingBy('author')
                 });
             });
             it('status:400, gets bad request when sending a bad query', () => {
@@ -200,12 +209,12 @@ describe('/', () => {
                   expect(body.msg).to.equal('column "autsdfr" does not exist')
                 });
             });
-            it("status:200, returns an empty array when there are no comments", () => {
+            it("status:404, returns not found when the article doesn't exist", () => {
               return request(app)
                 .get('/api/articles/4000/comments')
-                .expect(200)
+                .expect(404)
                 .then(({ body }) => {
-                  expect(body.comment).to.eql([])
+                  expect(body.msg).to.equal('article not found')
                 });
             });
           });

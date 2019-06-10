@@ -23,9 +23,13 @@ const updatedComment = (req, res, next) => {
 }
 
 const sendComments = (req, res, next) => {
-    fetchComments(req.params, req.query)
-        .then(comment => res.status(200)
-        .send({ comment }))
+    fetchArticle(req.params)
+        .then(() => {
+            console.log(req.params)
+            return fetchComments(req.params, req.query)
+        })
+        .then(comments => res.status(200)
+        .send({ comments }))
         .catch(err => next(err))
 }
 
