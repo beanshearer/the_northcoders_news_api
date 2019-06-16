@@ -1,33 +1,46 @@
-const { articlesData, commentsData, topicsData, usersData } = require('../data');
-const { convertingToPsqlTimeStamp, keyPair, replacingKeys, changeKeyName } = require('../../utils/index');
+const {
+  articlesData,
+  commentsData,
+  topicsData,
+  usersData
+} = require("../data");
+const {
+  convertToPsqlTimeStamp,
+  titleIdKeyPair,
+  replaceArticleId,
+  changeKeyToAuthor
+} = require("../../utils/index");
 
 exports.seed = (knex, Promise) => {
-    return knex.migrate
-      .rollback()
-      .then(() => knex.migrate.latest())
-      .then(() => { 
-        return knex.insert(topicsData)
+  return knex.migrate
+    .rollback()
+    .then(() => knex.migrate.latest())
+    .then(() => {
+      return knex
+        .insert(topicsData)
         .into("topics")
-        .returning("*")
-      })
-      .then(() => {
-        return knex.insert(usersData)
+        .returning("*");
+    })
+    .then(() => {
+      return knex
+        .insert(usersData)
         .into("users")
-        .returning("*")
-      })
-      .then(() => {
-        return knex.insert(convertingToPsqlTimeStamp(articlesData))
+        .returning("*");
+    })
+    .then(() => {
+      return knex
+        .insert(convertToPsqlTimeStamp(articlesData))
         .into("articles")
-        .returning("*")
-      })
-      .then(articles => {
-        const idTitle = keyPair(articles); 
-        const replacedWithId = replacingKeys(commentsData, idTitle)
-        const withTimeStamp = convertingToPsqlTimeStamp(replacedWithId)
-        const withAuthor = changeKeyName(withTimeStamp);
-        return knex.insert(withAuthor)
+        .returning("*");
+    })
+    .then(articles => {
+      const idTitle = titleIdKeyPair(articles);
+      const replacedWithId = replaceArticleId(commentsData, idTitle);
+      const withTimeStamp = convertToPsqlTimeStamp(replacedWithId);
+      const withAuthor = changeKeyToAuthor(withTimeStamp);
+      return knex
+        .insert(withAuthor)
         .into("comments")
-        .returning("*")
-      })
-  };
-  
+        .returning("*");
+    });
+};
