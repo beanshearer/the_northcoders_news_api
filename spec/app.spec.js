@@ -58,7 +58,7 @@ describe("/", () => {
               .get("/api/articles/3")
               .expect(200)
               .then(({ body }) => {
-                expect(body.article[0]).to.have.keys(
+                expect(body.article).to.have.keys(
                   "author",
                   "title",
                   "article_id",

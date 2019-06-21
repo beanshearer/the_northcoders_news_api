@@ -16,16 +16,16 @@ exports.seed = (knex, Promise) => {
     .rollback()
     .then(() => knex.migrate.latest())
     .then(() => {
-      return knex
-        .insert(topicsData)
-        .into("topics")
-        .returning("*");
-    })
-    .then(() => {
-      return knex
-        .insert(usersData)
-        .into("users")
-        .returning("*");
+      return Promise.all([
+        knex
+          .insert(topicsData)
+          .into("topics")
+          .returning("*"),
+        knex
+          .insert(usersData)
+          .into("users")
+          .returning("*")
+      ]);
     })
     .then(() => {
       return knex

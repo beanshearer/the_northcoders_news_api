@@ -8,10 +8,11 @@ const fetchArticle = ({ article_id }) => {
     .leftJoin("comments", "comments.article_id", "articles.article_id")
     .groupBy("articles.article_id")
     .where({ "articles.article_id": article_id })
+    .first()
     .then(article => {
-      if (article.length < 1) {
+      if (!article)
         return Promise.reject({ status: 404, message: "article not found" });
-      } else return article;
+      else return article;
     });
 };
 
