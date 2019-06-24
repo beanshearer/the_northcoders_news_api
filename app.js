@@ -7,10 +7,9 @@ const {
   handleCustomErrors,
   handlePsqlErrors
 } = require("./errors");
+const app = express();
 
 app.use(cors());
-
-const app = express();
 
 app.use(express.json());
 
