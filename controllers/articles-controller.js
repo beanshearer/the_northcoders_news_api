@@ -48,8 +48,8 @@ const sendArticles = (req, res, next) => {
     .then(() => {
       return fetchArticles(req.query);
     })
-    .then(articles => {
-      res.status(200).send({ articles });
+    .then(({ articles, count }) => {
+      res.status(200).send({ articles, total_count: +count });
     })
     .catch(next);
 };

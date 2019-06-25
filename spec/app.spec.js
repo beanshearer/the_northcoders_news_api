@@ -309,6 +309,30 @@ describe("/", () => {
                 expect(body.articles).to.be.descendingBy("topic");
               });
           });
+          it("status:200 returns an array of length five", () => {
+            return request(app)
+              .get("/api/articles/?limit=5")
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.articles.length).to.equal(5);
+              });
+          });
+          it("status:200 returns a total_count of 17", () => {
+            return request(app)
+              .get("/api/articles/")
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.total_count).to.equal(12);
+              });
+          });
+          it("status:200 returns an array of length 10 from position 3", () => {
+            return request(app)
+              .get("/api/articles/?p=2")
+              .expect(200)
+              .then(({ body }) => {
+                expect(body.articles.length).to.equal(10);
+              });
+          });
           it("status:400, returns column doesn't exist when then trying to sort using a column that doesn't exist", () => {
             return request(app)
               .get("/api/articles/?sort_by=topdfgisdc")

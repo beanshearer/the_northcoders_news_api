@@ -58,31 +58,43 @@ const fetchArticles = ({
   sort_by = "articles.created_at",
   order = "desc",
   author,
-  topic
+  topic,
+  limit = 10,
+  p = 0
 }) => {
-  return connection
-    .select(
-      "articles.author",
-      "articles.title",
-      "articles.article_id",
-      "articles.created_at",
-      "articles.votes",
-      "articles.topic"
-    )
-    .from("articles")
-    .count({ comment_count: "comments.article_id" })
-    .leftJoin("comments", "comments.article_id", "articles.article_id")
-    .groupBy("articles.article_id")
-    .modify(query => {
-      if (author) query.where({ "articles.author": author });
-      if (topic) query.where({ "articles.topic": topic });
-    })
-    .orderBy(sort_by, order)
-    .then(articles => {
-      if (articles.length < 1) {
-        return Promise.reject({ status: 404, message: "no articles" });
-      } else return articles;
-    });
+  return Promise.all([
+    connection
+      .select(
+        "articles.author",
+        "articles.title",
+        "articles.article_id",
+        "articles.created_at",
+        "articles.votes",
+        "articles.topic"
+      )
+      .from("articles")
+      .count({ comment_count: "comments.article_id" })
+      .leftJoin("comments", "comments.article_id", "articles.article_id")
+      .groupBy("articles.article_id")
+      .modify(query => {
+        if (author) query.where({ "articles.author": author });
+        if (topic) query.where({ "articles.topic": topic });
+      })
+      .limit(limit)
+      .offset(p)
+      .orderBy(sort_by, order),
+    connection("articles")
+      .modify(query => {
+        if (author) query.where({ "articles.author": author });
+        if (topic) query.where({ "articles.topic": topic });
+      })
+      .count("article_id")
+  ]).then(([articles, [{ count }]]) => {
+    console.log(count);
+    if (count < 1) {
+      return Promise.reject({ status: 404, message: "no articles" });
+    } else return { articles, count };
+  });
 };
 
 const checkTopicOrColumnExists = ({ topic, sort_by = "*" }) => {
