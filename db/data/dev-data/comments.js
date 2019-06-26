@@ -3,7 +3,7 @@ module.exports = [
     body: 'Itaque quisquam est similique et est perspiciatis reprehenderit voluptatem autem. Voluptatem accusantium eius error adipisci quibusdam doloribus.',
     belongs_to: 'The People Tracking Every Touch, Pass And Tackle in the World Cup',
     created_by: 'tickle122',
-    votes: -1,
+    votes: 1,
     created_at: 1468087638932,
   },
   {
@@ -31,14 +31,14 @@ module.exports = [
     body: 'Quod qui quia dignissimos sit tempore vel reprehenderit. Ipsa ipsa veritatis architecto corporis et et non. Sed alias occaecati eum dignissimos sint eius. Ad ea iste quas quia velit libero voluptatem voluptatem. Animi illo nisi nulla quia sapiente omnis dolorem nulla. Sunt dolor similique.',
     belongs_to: 'Which current Premier League manager was the best player?',
     created_by: 'weegembump',
-    votes: -5,
+    votes: 5,
     created_at: 1496231984183,
   },
   {
     body: 'Veritatis animi et voluptates nesciunt officia facere eaque. Eligendi earum explicabo necessitatibus aut dolorem nisi esse nesciunt. Non iusto rem ut consequuntur quam ut rem sed. Velit laboriosam consectetur enim delectus eos sit veritatis eveniet perspiciatis.',
     belongs_to: 'Stone Soup',
     created_by: 'grumpy19',
-    votes: -5,
+    votes: 5,
     created_at: 1469442270839,
   },
   {
@@ -59,7 +59,7 @@ module.exports = [
     body: 'Ea iure voluptas. Esse vero et dignissimos blanditiis commodi rerum dicta omnis modi.',
     belongs_to: 'Who are the most followed clubs and players on Instagram?',
     created_by: 'cooljmessy',
-    votes: -1,
+    votes: 1,
     created_at: 1472375043865,
   },
   {
@@ -94,7 +94,7 @@ module.exports = [
     body: 'Iure quas est omnis porro. Est in est distinctio sequi consectetur rerum deserunt. Et et reiciendis. Consequatur distinctio sint porro neque molestiae.',
     belongs_to: 'Making sense of Redux',
     created_by: 'weegembump',
-    votes: -4,
+    votes: 4,
     created_at: 1487291329309,
   },
   {
@@ -129,7 +129,7 @@ module.exports = [
     body: 'Id adipisci saepe dolorum et veritatis qui et voluptatibus. Error consequuntur architecto consequatur assumenda rerum similique quo. Quas omnis quam labore exercitationem pariatur veniam assumenda. Tempore maiores rerum. Eum voluptates non repudiandae magnam illo voluptatum. Qui praesentium asperiores rerum vel.',
     belongs_to: 'High Altitude Cooking',
     created_by: 'tickle122',
-    votes: -3,
+    votes: 3,
     created_at: 1493371027508,
   },
   {
@@ -199,7 +199,7 @@ module.exports = [
     body: 'Perferendis quia et nihil. Quasi ut voluptates sapiente et accusantium vel qui reprehenderit ratione. Autem alias voluptatem accusamus nesciunt beatae vero. Itaque repellat omnis et velit cum corporis aut id voluptas. Nostrum unde fuga ea. Perferendis quas maiores.',
     belongs_to: 'The vegan carnivore?',
     created_by: 'jessjelly',
-    votes: -2,
+    votes: 2,
     created_at: 1467806054117,
   },
   {
@@ -297,7 +297,7 @@ module.exports = [
     body: 'Ipsam quis ad consequatur iure voluptas accusantium voluptatem unde. Cumque omnis mollitia natus nemo deleniti rerum enim cumque aut. Quod quis est fuga.',
     belongs_to: 'Express.js: A Server-Side JavaScript Framework',
     created_by: 'grumpy19',
-    votes: -2,
+    votes: 2,
     created_at: 1455032708352,
   },
   {
@@ -318,7 +318,7 @@ module.exports = [
     body: 'Non sunt quos aut facere. Corporis molestiae aut soluta aut rerum animi voluptatibus.',
     belongs_to: 'HOW COOKING HAS CHANGED US',
     created_by: 'weegembump',
-    votes: -3,
+    votes: 3,
     created_at: 1508255682167,
   },
   {
@@ -353,7 +353,7 @@ module.exports = [
     body: 'Eius dolor ipsa eaque qui sed accusantium est tenetur omnis. Eligendi necessitatibus sunt voluptate occaecati et quis consequuntur aut. Maxime nihil ut quia culpa.',
     belongs_to: '22 Amazing open source React projects',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1479098939407,
   },
   {
@@ -381,7 +381,7 @@ module.exports = [
     body: 'Ut et libero reiciendis. Tenetur quibusdam veniam in atque corrupti excepturi tenetur qui et. Qui ut autem minus aut explicabo in cumque dolorum. Voluptatem est perferendis velit. Eaque doloremque asperiores error.',
     belongs_to: 'JavaScript’s Apply, Call, and Bind Methods are Essential for JavaScript Professionals',
     created_by: 'jessjelly',
-    votes: -3,
+    votes: 3,
     created_at: 1514329185392,
   },
   {
@@ -437,14 +437,14 @@ module.exports = [
     body: 'Est pariatur quis ipsa culpa unde temporibus et accusantium rerum. Consequatur in occaecati aut non similique aut quibusdam. Qui sunt magnam iure blanditiis. Et est non enim. Est ab vero dolor.',
     belongs_to: "The Rise Of Thinking Machines: How IBM's Watson Takes On The World",
     created_by: 'jessjelly',
-    votes: -1,
+    votes: 1,
     created_at: 1468655332950,
   },
   {
     body: 'Ad qui ut enim qui numquam quis. Reprehenderit rem non nulla dolor aut totam corporis illo. Et ea maxime consequuntur nihil delectus dolores qui in aliquam. Ut et eius id nesciunt necessitatibus beatae quo. Est qui provident officia in dolor. Assumenda voluptas dolor.',
     belongs_to: 'JavaScript’s Apply, Call, and Bind Methods are Essential for JavaScript Professionals',
     created_by: 'grumpy19',
-    votes: -5,
+    votes: 5,
     created_at: 1486913034614,
   },
   {
@@ -479,7 +479,7 @@ module.exports = [
     body: 'Totam et dolor magnam et voluptatum. A in adipisci.',
     belongs_to: 'Sunday league football',
     created_by: 'tickle122',
-    votes: -1,
+    votes: 1,
     created_at: 1497278015886,
   },
   {
@@ -535,7 +535,7 @@ module.exports = [
     body: 'Hic qui omnis qui sit deserunt velit labore commodi repellat. Minus voluptatum dolore libero voluptatem praesentium aut iusto harum. Consequatur sit quasi. Est ad minus inventore ut reiciendis. Quos incidunt rerum. Ut omnis in voluptatum nesciunt.',
     belongs_to: 'Express.js: A Server-Side JavaScript Framework',
     created_by: 'tickle122',
-    votes: -2,
+    votes: 2,
     created_at: 1492252444928,
   },
   {
@@ -556,7 +556,7 @@ module.exports = [
     body: 'Voluptatem voluptas unde. Quam tempore recusandae voluptatem similique iusto repudiandae et. Tenetur dolores possimus labore. Incidunt quae ipsa qui quas. Sunt suscipit aliquid vitae.',
     belongs_to: 'What to Cook This Week',
     created_by: 'cooljmessy',
-    votes: -5,
+    votes: 5,
     created_at: 1462470570212,
   },
   {
@@ -570,14 +570,14 @@ module.exports = [
     body: 'Facilis ipsam illum aut voluptatibus. Repudiandae cupiditate quo fugiat earum est ut autem repudiandae excepturi. Fuga voluptatem iusto ut. Nulla sequi culpa qui eaque. Architecto non veniam distinctio.',
     belongs_to: 'Designing Better JavaScript APIs',
     created_by: 'happyamy2016',
-    votes: -4,
+    votes: 4,
     created_at: 1490024783951,
   },
   {
     body: 'Velit in assumenda quo repudiandae qui eaque. Qui dolor ad iusto optio magnam suscipit.',
     belongs_to: 'Game of talents: management lessons from top football coaches',
     created_by: 'weegembump',
-    votes: -2,
+    votes: 2,
     created_at: 1503350414277,
   },
   {
@@ -612,7 +612,7 @@ module.exports = [
     body: 'Minus minus sit non fugiat sunt et nostrum aut et. Dignissimos qui nemo quos fuga qui temporibus occaecati aut. Explicabo dolor commodi officia nulla totam inventore.',
     belongs_to: 'Please stop worrying about Angular 3',
     created_by: 'weegembump',
-    votes: -3,
+    votes: 3,
     created_at: 1484689673849,
   },
   {
@@ -654,7 +654,7 @@ module.exports = [
     body: 'Voluptatum aut facilis odit sint. Iste ab ut mollitia aut odio. Similique aut a ut est impedit. Similique dolorum possimus ipsum voluptatem iste non commodi placeat quia. Vero aperiam eum voluptatem aut sed totam dicta suscipit.',
     belongs_to: 'A BRIEF HISTORY OF FOOD—NO BIG DEAL',
     created_by: 'weegembump',
-    votes: -4,
+    votes: 4,
     created_at: 1477955052607,
   },
   {
@@ -682,7 +682,7 @@ module.exports = [
     body: 'Delectus nostrum autem. Dolore est id veniam maxime aliquid omnis nam cupiditate consequatur. Eveniet similique et voluptatem voluptatem illo. Quam officiis aut molestias hic est omnis. Dolor enim dolores. Quo explicabo reprehenderit reprehenderit nostrum magni in.',
     belongs_to: 'Which current Premier League manager was the best player?',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1470630851218,
   },
   {
@@ -752,7 +752,7 @@ module.exports = [
     body: 'Magni similique tempore a quia officiis ipsam ut non. Eum laborum dicta sint illo nihil quia maiores. Reiciendis sit voluptate sed quae iste temporibus.',
     belongs_to: 'Which current Premier League manager was the best player?',
     created_by: 'grumpy19',
-    votes: -1,
+    votes: 1,
     created_at: 1480118228743,
   },
   {
@@ -787,14 +787,14 @@ module.exports = [
     body: 'Accusantium est officiis labore dolorem hic maiores quae quo. Et rerum sequi.',
     belongs_to: 'Sunday league football',
     created_by: 'cooljmessy',
-    votes: -3,
+    votes: 3,
     created_at: 1515612352359,
   },
   {
     body: 'Eligendi placeat aspernatur omnis delectus maxime inventore at porro. Accusantium nobis totam fugiat debitis quia repellat quo qui voluptatem. Laboriosam nesciunt distinctio et aut itaque ipsa aut. Cum accusantium et et recusandae numquam quas et. Porro minima accusantium atque quo illo.',
     belongs_to: 'The Notorious MSG’s Unlikely Formula For Success',
     created_by: 'tickle122',
-    votes: -4,
+    votes: 4,
     created_at: 1506359598415,
   },
   {
@@ -864,7 +864,7 @@ module.exports = [
     body: 'Vitae laudantium molestiae neque ut dicta fuga similique. Sit nesciunt magni sit beatae. Porro recusandae aut exercitationem eligendi voluptas. Dolore eligendi inventore magni voluptatem quia ut ut.',
     belongs_to: 'The Notorious MSG’s Unlikely Formula For Success',
     created_by: 'grumpy19',
-    votes: -1,
+    votes: 1,
     created_at: 1501225926187,
   },
   {
@@ -941,7 +941,7 @@ module.exports = [
     body: 'Quam officiis reprehenderit architecto omnis est facere inventore. Expedita est enim dolore debitis velit. Quo facilis accusantium error.',
     belongs_to: 'Thanksgiving Drinks for Everyone',
     created_by: 'happyamy2016',
-    votes: -1,
+    votes: 1,
     created_at: 1494722540261,
   },
   {
@@ -955,7 +955,7 @@ module.exports = [
     body: 'Nesciunt aliquid ex et architecto beatae fugit. Et delectus quam culpa rerum hic repellendus laudantium est. Non quasi omnis. Deserunt nisi voluptatem asperiores aspernatur mollitia qui. Molestiae sit voluptates et voluptas voluptas consequatur. Corrupti laboriosam consequatur est tenetur consequuntur id.',
     belongs_to: 'HOW COOKING HAS CHANGED US',
     created_by: 'happyamy2016',
-    votes: -5,
+    votes: 5,
     created_at: 1493289181062,
   },
   {
@@ -1025,7 +1025,7 @@ module.exports = [
     body: 'Qui qui sit earum et laboriosam non. Nobis distinctio qui et sint perspiciatis qui eum. Doloremque animi quia tenetur harum distinctio et.',
     belongs_to: 'Thanksgiving Drinks for Everyone',
     created_by: 'weegembump',
-    votes: -2,
+    votes: 2,
     created_at: 1491080532995,
   },
   {
@@ -1046,7 +1046,7 @@ module.exports = [
     body: 'Doloremque ut reiciendis autem perferendis vel in tempore. Delectus quia illum deleniti fuga dolores dicta velit aut architecto.',
     belongs_to: 'Learn HTML5, CSS3, and Responsive WebSite Design in One Go',
     created_by: 'tickle122',
-    votes: -3,
+    votes: 3,
     created_at: 1463084117690,
   },
   {
@@ -1102,14 +1102,14 @@ module.exports = [
     body: 'Voluptatibus laudantium vel consequuntur explicabo voluptatem adipisci eligendi nihil magni. Dolore in molestias ullam sapiente et aperiam. Et aut est placeat porro dolor et modi reiciendis. Enim fuga exercitationem in. Dolore sint laudantium quos sint et aut possimus.',
     belongs_to: 'Defensive Metrics: Measuring the Intensity of a High Press',
     created_by: 'happyamy2016',
-    votes: -5,
+    votes: 5,
     created_at: 1471434590561,
   },
   {
     body: 'Veniam natus sed nostrum et aut repellendus. Dignissimos quia cum id odio repudiandae impedit aperiam sapiente. Harum sequi non nihil velit modi. Corporis consequatur enim suscipit eos dignissimos voluptas nobis eum.',
     belongs_to: 'Stone Soup',
     created_by: 'cooljmessy',
-    votes: -1,
+    votes: 1,
     created_at: 1456889732394,
   },
   {
@@ -1193,7 +1193,7 @@ module.exports = [
     body: 'Est voluptas reprehenderit enim necessitatibus blanditiis quia consequatur. Soluta quae quia non veniam corrupti et. Asperiores culpa est ut quam ipsum molestias reiciendis sed molestiae. Ut odit in non odio molestias ab. Voluptates est inventore nihil sunt voluptatem dignissimos et debitis. Nihil et numquam.',
     belongs_to: 'Twice-Baked Butternut Squash Is the Thanksgiving Side Dish of Your Dreams',
     created_by: 'weegembump',
-    votes: -5,
+    votes: 5,
     created_at: 1481360946620,
   },
   {
@@ -1214,7 +1214,7 @@ module.exports = [
     body: 'Sit dolores similique temporibus omnis. Reiciendis animi similique. Tempore inventore aperiam. Labore dolorem sint molestiae assumenda ipsum.',
     belongs_to: 'The Notorious MSG’s Unlikely Formula For Success',
     created_by: 'cooljmessy',
-    votes: -2,
+    votes: 2,
     created_at: 1517490311295,
   },
   {
@@ -1263,14 +1263,14 @@ module.exports = [
     body: 'Aut sint ut. Voluptatem enim saepe quasi aut ut qui quasi neque quidem. At nihil quia minus eos harum est accusantium et.',
     belongs_to: 'History of FC Barcelona',
     created_by: 'tickle122',
-    votes: -2,
+    votes: 2,
     created_at: 1453826288612,
   },
   {
     body: 'Voluptatem voluptas tempore soluta et rerum quia sed quas ut. Non cumque perferendis voluptate vitae est quis sit enim dolor. Et esse qui est et.',
     belongs_to: 'JavaScript’s Apply, Call, and Bind Methods are Essential for JavaScript Professionals',
     created_by: 'jessjelly',
-    votes: -5,
+    votes: 5,
     created_at: 1513268560842,
   },
   {
@@ -1382,7 +1382,7 @@ module.exports = [
     body: 'Odio accusamus eius voluptatem voluptatem esse magni est in aperiam. Voluptatem quam sapiente omnis debitis ut molestiae. Eligendi qui ratione. Maiores occaecati voluptas voluptatem at repellat sint voluptatem. Ut voluptatem optio porro perspiciatis aut dicta quae qui. Minus odio suscipit tempora aspernatur sequi ut est.',
     belongs_to: 'Twice-Baked Butternut Squash Is the Thanksgiving Side Dish of Your Dreams',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1483689223464,
   },
   {
@@ -1396,7 +1396,7 @@ module.exports = [
     body: 'Fugiat aut ipsam ea commodi natus commodi officiis amet. Rerum quae error. Vel eum voluptates corrupti aperiam.',
     belongs_to: '22 Amazing open source React projects',
     created_by: 'jessjelly',
-    votes: -1,
+    votes: 1,
     created_at: 1456080069757,
   },
   {
@@ -1410,14 +1410,14 @@ module.exports = [
     body: 'Quia numquam ut fuga. Laudantium perspiciatis distinctio rerum sunt itaque non ipsum. Nihil necessitatibus voluptatem. Reiciendis nobis quae quo et mollitia soluta. Voluptates deleniti soluta ducimus natus eos enim sunt. Totam et perferendis qui reiciendis.',
     belongs_to: 'History of FC Barcelona',
     created_by: 'happyamy2016',
-    votes: -3,
+    votes: 3,
     created_at: 1470281889242,
   },
   {
     body: 'Fugiat voluptatibus numquam aut aut sit quae magni qui. Ipsam sed reprehenderit aliquid quibusdam. Id ducimus quisquam modi sed repellendus quia omnis aliquam et. Qui blanditiis voluptate doloremque esse qui sint deserunt voluptas. Et rerum et rerum quia repudiandae vero omnis voluptas sit. Ipsam eos fugiat omnis rem quia sequi omnis reprehenderit minus.',
     belongs_to: 'Designing Better JavaScript APIs',
     created_by: 'tickle122',
-    votes: -1,
+    votes: 1,
     created_at: 1507241493080,
   },
   {
@@ -1438,7 +1438,7 @@ module.exports = [
     body: 'Ea cum vitae sunt. Rerum inventore voluptates dolores consequuntur recusandae esse quia velit at. Voluptatem sit voluptates temporibus. Et sunt harum ad sit ut aperiam. Omnis enim eos aspernatur. Maxime nam quasi error dolor et qui quaerat accusamus temporibus.',
     belongs_to: 'What to Cook This Week',
     created_by: 'cooljmessy',
-    votes: -3,
+    votes: 3,
     created_at: 1468763337114,
   },
   {
@@ -1473,7 +1473,7 @@ module.exports = [
     body: 'Molestiae ut esse a error necessitatibus doloribus eligendi nesciunt. Ea minus voluptatem quae maxime distinctio.',
     belongs_to: 'The Notorious MSG’s Unlikely Formula For Success',
     created_by: 'cooljmessy',
-    votes: -3,
+    votes: 3,
     created_at: 1465537013174,
   },
   {
@@ -1501,14 +1501,14 @@ module.exports = [
     body: 'Maxime beatae esse veniam cum nihil. Mollitia at ducimus aliquam. Doloribus sed est. Modi ut neque et velit expedita. Aliquid in assumenda.',
     belongs_to: 'Who are the most followed clubs and players on Instagram?',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1466140563953,
   },
   {
     body: 'Similique ea aperiam incidunt numquam ratione dignissimos vero reiciendis voluptatem. Saepe quas soluta ut odit. Laboriosam et aspernatur et rerum mollitia optio. Est nisi consequatur veritatis aut occaecati soluta quae beatae. Eligendi debitis ratione temporibus aperiam.',
     belongs_to: 'Stone Soup',
     created_by: 'weegembump',
-    votes: -2,
+    votes: 2,
     created_at: 1496615232823,
   },
   {
@@ -1522,7 +1522,7 @@ module.exports = [
     body: 'Iste laudantium explicabo nihil officia. Tempora voluptates amet exercitationem sed aut quo. Nostrum totam esse minus distinctio ipsum. Nisi debitis voluptatem rerum nisi qui.',
     belongs_to: 'The battle for Node.js security has only begun',
     created_by: 'weegembump',
-    votes: -3,
+    votes: 3,
     created_at: 1492948973034,
   },
   {
@@ -1557,7 +1557,7 @@ module.exports = [
     body: 'Qui vero officia et delectus quibusdam. Eos qui inventore voluptas. Sed delectus assumenda velit. Nihil nostrum facilis beatae ut architecto sed.',
     belongs_to: 'Halal food: Keeping pure and true',
     created_by: 'jessjelly',
-    votes: -3,
+    votes: 3,
     created_at: 1517461837306,
   },
   {
@@ -1585,7 +1585,7 @@ module.exports = [
     body: 'Et hic sint magnam error necessitatibus numquam molestias sequi. Ad id enim qui sit cum dolorem.',
     belongs_to: 'Which current Premier League manager was the best player?',
     created_by: 'weegembump',
-    votes: -5,
+    votes: 5,
     created_at: 1466243491705,
   },
   {
@@ -1599,7 +1599,7 @@ module.exports = [
     body: 'Quod asperiores aut. Rerum ipsa sed quas nobis qui recusandae neque. Est dolorem ipsam.',
     belongs_to: 'Making sense of Redux',
     created_by: 'jessjelly',
-    votes: -4,
+    votes: 4,
     created_at: 1457740985843,
   },
   {
@@ -1634,7 +1634,7 @@ module.exports = [
     body: 'Nostrum perspiciatis ratione illum et officia nobis sint et. Dignissimos est sed officia exercitationem. Voluptas voluptate ipsam eius rem sunt est. Accusamus nulla nam est velit. Sapiente rerum est minima eligendi accusamus voluptatem sint optio.',
     belongs_to: 'History of FC Barcelona',
     created_by: 'weegembump',
-    votes: -3,
+    votes: 3,
     created_at: 1468384330623,
   },
   {
@@ -1697,7 +1697,7 @@ module.exports = [
     body: 'Natus quaerat non harum quae ut et quia. Id aut reiciendis.',
     belongs_to: 'The vegan carnivore?',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1466411273654,
   },
   {
@@ -1725,7 +1725,7 @@ module.exports = [
     body: 'Dolor rem saepe voluptas impedit et. Corrupti qui quod commodi. Quos blanditiis placeat.',
     belongs_to: "What does Jose Mourinho's handwriting say about his personality?",
     created_by: 'grumpy19',
-    votes: -1,
+    votes: 1,
     created_at: 1455364132732,
   },
   {
@@ -1760,7 +1760,7 @@ module.exports = [
     body: 'Distinctio laudantium consequatur exercitationem enim magni quod est commodi. Harum consequatur est maiores ipsum accusamus impedit perferendis nobis ipsam. Adipisci excepturi itaque maiores deserunt deserunt occaecati iste. Consectetur non nostrum ex voluptatem in laborum sed ut.',
     belongs_to: 'History of FC Barcelona',
     created_by: 'grumpy19',
-    votes: -3,
+    votes: 3,
     created_at: 1473870752272,
   },
   {
@@ -1781,14 +1781,14 @@ module.exports = [
     body: 'Voluptatem in distinctio delectus. Inventore fuga quia nemo sint quisquam reiciendis provident. Porro animi nemo qui.',
     belongs_to: 'Agility Training Drills For Football Players',
     created_by: 'tickle122',
-    votes: -1,
+    votes: 1,
     created_at: 1465924132622,
   },
   {
     body: 'Aut fugiat eos distinctio culpa est est maxime. Maiores nihil quos velit minus beatae. Dolore eos tenetur voluptates nemo.',
     belongs_to: 'Making sense of Redux',
     created_by: 'cooljmessy',
-    votes: -5,
+    votes: 5,
     created_at: 1490730033487,
   },
   {
@@ -1802,7 +1802,7 @@ module.exports = [
     body: 'Rerum occaecati provident et reprehenderit. Possimus dignissimos quo. Alias ut aut at qui. Ut quasi incidunt porro. Accusantium omnis facilis.',
     belongs_to: 'Express.js: A Server-Side JavaScript Framework',
     created_by: 'jessjelly',
-    votes: -1,
+    votes: 1,
     created_at: 1497259928713,
   },
   {
@@ -1823,7 +1823,7 @@ module.exports = [
     body: 'Delectus id consequatur voluptatem ad sapiente quia optio dolor. Dolorum est ullam vitae.',
     belongs_to: 'Defensive Metrics: Measuring the Intensity of a High Press',
     created_by: 'grumpy19',
-    votes: -5,
+    votes: 5,
     created_at: 1474397182435,
   },
   {
@@ -1886,7 +1886,7 @@ module.exports = [
     body: 'Repellat id vel. Ut illo ut voluptas expedita enim aperiam et cumque temporibus. Facilis non iste eos quia ut occaecati est. Soluta molestiae qui quo vel qui. Dolor labore fuga ex voluptatem ut sed similique voluptatem aspernatur. Magnam aperiam iure fuga aut nemo eius aut minima.',
     belongs_to: 'A BRIEF HISTORY OF FOOD—NO BIG DEAL',
     created_by: 'tickle122',
-    votes: -5,
+    votes: 5,
     created_at: 1509622832244,
   },
   {
@@ -1907,21 +1907,21 @@ module.exports = [
     body: 'Ullam ut consequatur. Vel et harum sed quo. Aliquid rem consequatur est. Esse deleniti voluptatem temporibus. Deleniti maiores officiis mollitia omnis exercitationem dicta cum quia. Earum voluptates qui iusto ipsa magni id.',
     belongs_to: 'Agility Training Drills For Football Players',
     created_by: 'weegembump',
-    votes: -5,
+    votes: 5,
     created_at: 1486809162227,
   },
   {
     body: 'Quod inventore aut consequuntur rerum aperiam. Laborum nihil ut optio fugit.',
     belongs_to: 'Stone Soup',
     created_by: 'happyamy2016',
-    votes: -3,
+    votes: 3,
     created_at: 1495385101905,
   },
   {
     body: 'Nulla similique ullam excepturi tempore. Voluptatem eum vel voluptatem dolores suscipit similique labore aliquam dolores. Est ex eum at voluptate repellat assumenda. Eos asperiores dolor aperiam.',
     belongs_to: 'Sunday league football',
     created_by: 'jessjelly',
-    votes: -4,
+    votes: 4,
     created_at: 1469776000595,
   },
   {
@@ -1977,7 +1977,7 @@ module.exports = [
     body: 'Ratione tempore et natus incidunt quibusdam minima. Voluptatem quae quae eos reiciendis et quia saepe enim et. Esse sapiente totam ullam nam. Provident repellat velit enim excepturi asperiores qui nostrum similique dicta. Labore repellendus quae ut voluptas voluptatibus. Voluptatibus voluptatum sed nemo harum ad harum repellendus ad.',
     belongs_to: 'Halal food: Keeping pure and true',
     created_by: 'happyamy2016',
-    votes: -4,
+    votes: 4,
     created_at: 1502057011385,
   },
   {
@@ -2026,7 +2026,7 @@ module.exports = [
     body: 'Sunt omnis pariatur dignissimos quibusdam dolore ut non velit autem. Omnis voluptatibus qui aut sunt ut unde. Ut eaque excepturi numquam quis occaecati. Repellat esse voluptas velit eveniet ut pariatur natus. Velit voluptas nostrum quia dignissimos quisquam incidunt.',
     belongs_to: 'High Altitude Cooking',
     created_by: 'jessjelly',
-    votes: -3,
+    votes: 3,
     created_at: 1516710496824,
   },
   {
@@ -2096,7 +2096,7 @@ module.exports = [
     body: 'Quia nemo est. Maiores animi architecto ad nihil sapiente. Odio in maxime nam assumenda tempora et nisi. Impedit quidem cum neque libero sequi et et impedit. Dignissimos ut molestiae laborum rerum error distinctio quasi hic consectetur. Odio vel qui necessitatibus perspiciatis ipsum quod excepturi saepe.',
     belongs_to: 'Defensive Metrics: Measuring the Intensity of a High Press',
     created_by: 'jessjelly',
-    votes: -1,
+    votes: 1,
     created_at: 1472454833917,
   },
 ];
