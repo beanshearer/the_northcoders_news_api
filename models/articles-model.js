@@ -41,7 +41,7 @@ const addComment = ({ article_id }, username, body) => {
 
 const fetchComments = (
   { article_id },
-  { sort_by = "created_at", order = "desc" }
+  { sort_by = "created_at", order = "desc", limit = 10, p = 0 }
 ) => {
   return connection
     .select("comment_id", "author", "votes", "created_at", "body")
@@ -49,8 +49,12 @@ const fetchComments = (
     .where({ article_id: article_id })
     .orderBy(sort_by, order)
     .returning("*")
-    .then(comment => {
-      return comment;
+    .limit(limit)
+    .offset(p)
+    .then(comments => {
+      if (comments.length < 1) {
+        return Promise.reject({ status: 404, message: "no comments found" });
+      } else return comments;
     });
 };
 
@@ -90,7 +94,6 @@ const fetchArticles = ({
       })
       .count("article_id")
   ]).then(([articles, [{ count }]]) => {
-    console.log(count);
     if (count < 1) {
       return Promise.reject({ status: 404, message: "no articles" });
     } else return { articles, count };

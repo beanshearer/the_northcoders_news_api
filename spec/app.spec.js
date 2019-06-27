@@ -13,41 +13,49 @@ describe("/", () => {
 
   describe("/api", () => {
     describe("/topics", () => {
-      it("GET status:200, returns all the topics", () => {
-        return request(app)
-          .get("/api/topics")
-          .expect(200)
-          .then(({ body }) => {
-            expect(body.topics).to.eql([
-              { slug: "mitch", description: "The man, the Mitch, the legend" },
-              { slug: "cats", description: "Not dogs" },
-              { slug: "paper", description: "what books are made of" }
-            ]);
-          });
+      describe("GET", () => {
+        it("status:200, returns all the topics", () => {
+          return request(app)
+            .get("/api/topics")
+            .expect(200)
+            .then(({ body }) => {
+              expect(body.topics).to.eql([
+                {
+                  slug: "mitch",
+                  description: "The man, the Mitch, the legend"
+                },
+                { slug: "cats", description: "Not dogs" },
+                { slug: "paper", description: "what books are made of" }
+              ]);
+            });
+        });
       });
     });
 
     describe("/user/:users", () => {
-      it("GET status:200, returns the correct user", () => {
-        return request(app)
-          .get("/api/users/butter_bridge")
-          .expect(200)
-          .then(({ body }) => {
-            expect(body.user).to.eql({
-              username: "butter_bridge",
-              name: "jonny",
-              avatar_url:
-                "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+      describe("GET", () => {
+        it("status:200, returns the correct user", () => {
+          return request(app)
+            .get("/api/users/butter_bridge")
+            .expect(200)
+            .then(({ body }) => {
+              expect(body.user).to.eql({
+                username: "butter_bridge",
+                name: "jonny",
+                avatar_url:
+                  "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+              });
             });
-          });
-      });
-      it("GET status:404, returns user not found", () => {
-        return request(app)
-          .get("/api/users/busdfr_bridgsdfsdf")
-          .expect(404)
-          .then(({ body }) => {
-            expect(body.msg).to.eql("user not found");
-          });
+        });
+
+        it("status:404, returns user not found", () => {
+          return request(app)
+            .get("/api/users/busdfr_bridgsdfsdf")
+            .expect(404)
+            .then(({ body }) => {
+              expect(body.msg).to.eql("user not found");
+            });
+        });
       });
     });
     describe("/articles", () => {
@@ -116,7 +124,7 @@ describe("/", () => {
                 expect(body.msg).to.equal("article not found");
               });
           });
-          it("status:200 - increases the vote by 1", () => {
+          it("status:200, increases the vote by 1", () => {
             return request(app)
               .patch("/api/articles/1")
               .send({ inc_votes: 1 })
@@ -125,7 +133,7 @@ describe("/", () => {
                 expect(body.article.votes).to.equal(101);
               });
           });
-          it("status:200 - doesn't increase the vote when an empty object is send", () => {
+          it("status:200, doesn't increase the vote when an empty object is send", () => {
             return request(app)
               .patch("/api/articles/1")
               .send({})
@@ -214,7 +222,7 @@ describe("/", () => {
             });
           });
           describe("GET", () => {
-            it("status:200 returns an array", () => {
+            it("status:200, returns an array", () => {
               return request(app)
                 .get("/api/articles/1/comments")
                 .expect(200)
@@ -222,7 +230,7 @@ describe("/", () => {
                   expect(body.comments).to.be.a("array");
                 });
             });
-            it("status:200 defaults to descending created_at", () => {
+            it("status:200, defaults to descending created_at", () => {
               return request(app)
                 .get("/api/articles/1/comments")
                 .expect(200)
@@ -236,6 +244,14 @@ describe("/", () => {
                 .expect(200)
                 .then(({ body }) => {
                   expect(body.comments).to.be.descendingBy("author");
+                });
+            });
+            it("status:200, returns an array of length 3", () => {
+              return request(app)
+                .get("/api/articles/1/comments?limit=3")
+                .expect(200)
+                .then(({ body }) => {
+                  expect(body.comments.length).to.equal(3);
                 });
             });
             it("status:400, gets bad request when sending a bad query", () => {
@@ -259,7 +275,7 @@ describe("/", () => {
       });
       describe("/", () => {
         describe("GET", () => {
-          it("status:200 returns an array of article objects", () => {
+          it("status:200, returns an array of article objects", () => {
             return request(app)
               .get("/api/articles/")
               .expect(200)
@@ -276,7 +292,7 @@ describe("/", () => {
                 );
               });
           });
-          it("status:200 returns the corrent comment count", () => {
+          it("status:200, returns the corrent comment count", () => {
             return request(app)
               .get("/api/articles/")
               .expect(200)
@@ -284,7 +300,7 @@ describe("/", () => {
                 expect(body.articles[0].comment_count).to.equal("13");
               });
           });
-          it("status:200 returns an array of article objects", () => {
+          it("status:200, returns an array of article objects", () => {
             return request(app)
               .get("/api/articles/")
               .expect(200)
@@ -301,7 +317,7 @@ describe("/", () => {
                 );
               });
           });
-          it("status:200 returns an array of article objects sorted by topic", () => {
+          it("status:200, returns an array of article objects sorted by topic", () => {
             return request(app)
               .get("/api/articles/?sort_by=topic")
               .expect(200)
@@ -309,7 +325,7 @@ describe("/", () => {
                 expect(body.articles).to.be.descendingBy("topic");
               });
           });
-          it("status:200 returns an array of length five", () => {
+          it("status:200, returns an array of length five", () => {
             return request(app)
               .get("/api/articles/?limit=5")
               .expect(200)
@@ -317,7 +333,7 @@ describe("/", () => {
                 expect(body.articles.length).to.equal(5);
               });
           });
-          it("status:200 returns a total_count of 17", () => {
+          it("status:200, returns a total_count of 17", () => {
             return request(app)
               .get("/api/articles/")
               .expect(200)
@@ -325,7 +341,7 @@ describe("/", () => {
                 expect(body.total_count).to.equal(12);
               });
           });
-          it("status:200 returns an array of length 10 from position 3", () => {
+          it("status:200, returns an array of length 10 from position 3", () => {
             return request(app)
               .get("/api/articles/?p=2")
               .expect(200)
@@ -341,7 +357,7 @@ describe("/", () => {
                 expect(body.msg).to.equal('column "topdfgisdc" does not exist');
               });
           });
-          it("status:200 returns an array of article objects sorted by topic", () => {
+          it("status:200, returns an array of article objects sorted by topic", () => {
             return request(app)
               .get("/api/articles/?sort_by=topic")
               .expect(200)
@@ -349,7 +365,7 @@ describe("/", () => {
                 expect(body.articles).to.be.descendingBy("topic");
               });
           });
-          it("status:200 returns an array of descending by created_at", () => {
+          it("status:200, returns an array of descending by created_at", () => {
             return request(app)
               .get("/api/articles/?order=desc")
               .expect(200)
@@ -357,7 +373,7 @@ describe("/", () => {
                 expect(body.articles).to.be.descendingBy("created_at");
               });
           });
-          it("status:200 returns an array of one author's articles", () => {
+          it("status:200, returns an array of one author's articles", () => {
             return request(app)
               .get("/api/articles/?author=icellusedkars")
               .expect(200)
@@ -365,7 +381,7 @@ describe("/", () => {
                 expect(body.articles).to.be.a("array");
               });
           });
-          it("status:200 returns an array of descending by article_id", () => {
+          it("status:200, returns an array of descending by article_id", () => {
             return request(app)
               .get("/api/articles/?topic=cats")
               .expect(200)
@@ -373,7 +389,7 @@ describe("/", () => {
                 expect(body.articles[0].topic).to.equal("cats");
               });
           });
-          it("status:200 returns 'no topic' when the topic doesn;t exist", () => {
+          it("status:200, returns 'no topic' when the topic doesn;t exist", () => {
             return request(app)
               .get("/api/articles/?topic=menchildren")
               .expect(404)
