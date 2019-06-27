@@ -1,6 +1,6 @@
 const apiRouter = require("express").Router();
 const { methodNotAllowed } = require("../errors");
-const { sendUser } = require("../controllers/user-controller");
+const { sendUser, sendAllUsers } = require("../controllers/user-controller");
 const topicsRouter = require("./topics");
 const articlesRouter = require("./articles");
 const {
@@ -13,6 +13,11 @@ apiRouter.use("/topics", topicsRouter);
 apiRouter
   .route("/users/:username/")
   .get(sendUser)
+  .all(methodNotAllowed);
+
+apiRouter
+  .route("/users/")
+  .get(sendAllUsers)
   .all(methodNotAllowed);
 
 apiRouter.use("/articles", articlesRouter);

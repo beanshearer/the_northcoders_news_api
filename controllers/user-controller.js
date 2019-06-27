@@ -1,4 +1,4 @@
-const { fetchUser } = require("../models/user-model");
+const { fetchUser, fetchAllUsers } = require("../models/user-model");
 
 const sendUser = (req, res, next) => {
   fetchUser(req.params)
@@ -8,4 +8,13 @@ const sendUser = (req, res, next) => {
     .catch(next);
 };
 
-module.exports = { sendUser };
+const sendAllUsers = (req, res, next) => {
+  console.log("controller");
+  fetchAllUsers()
+    .then(users => {
+      res.status(200).send({ users });
+    })
+    .catch(next);
+};
+
+module.exports = { sendUser, sendAllUsers };

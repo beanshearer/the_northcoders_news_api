@@ -32,69 +32,80 @@ describe("/", () => {
       });
     });
 
-    describe("/user/:users", () => {
+    describe("/user", () => {
       describe("GET", () => {
-        it("status:200, returns the correct user", () => {
-          return request(app)
-            .get("/api/users/butter_bridge")
-            .expect(200)
-            .then(({ body }) => {
-              expect(body.user).to.eql({
-                username: "butter_bridge",
-                name: "jonny",
-                avatar_url:
-                  "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
-              });
-            });
-        });
-
-        it("status:404, returns user not found", () => {
-          return request(app)
-            .get("/api/users/busdfr_bridgsdfsdf")
-            .expect(404)
-            .then(({ body }) => {
-              expect(body.msg).to.eql("user not found");
-            });
-        });
-      });
-    });
-    describe("/articles", () => {
-      describe("/:articles_id", () => {
-        describe("GET", () => {
-          it("status:200, returns the relevent article", () => {
+        describe("/", () => {
+          it.only("status:200, returns all the users", () => {
             return request(app)
-              .get("/api/articles/3")
+              .get("/api/users/")
               .expect(200)
               .then(({ body }) => {
-                expect(body.article).to.have.keys(
-                  "author",
-                  "title",
-                  "article_id",
-                  "body",
-                  "topic",
-                  "created_at",
-                  "votes",
-                  "comment_count"
-                );
+                expect(body.users).to.be.an("array");
               });
           });
-          it("status:404, returns article not found when the the valid article number does not exist", () => {
-            return request(app)
-              .get("/api/articles/300000")
-              .expect(404)
-              .then(({ body }) => {
-                expect(body.msg).to.equal("article not found");
-              });
+          describe("/:users", () => {
+            it("status:200, returns the correct user", () => {
+              return request(app)
+                .get("/api/users/butter_bridge")
+                .expect(200)
+                .then(({ body }) => {
+                  expect(body.user).to.eql({
+                    username: "butter_bridge",
+                    name: "jonny",
+                    avatar_url:
+                      "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+                  });
+                });
+            });
+            it("status:404, returns user not found", () => {
+              return request(app)
+                .get("/api/users/busdfr_bridgsdfsdf")
+                .expect(404)
+                .then(({ body }) => {
+                  expect(body.msg).to.eql("user not found");
+                });
+            });
           });
-          it("status:400, returns error message when the given an invalid request", () => {
-            return request(app)
-              .get("/api/articles/30BassSAND")
-              .expect(400)
-              .then(({ body }) => {
-                expect(body.msg).to.equal(
-                  'invalid input syntax for integer: "30BassSAND"'
-                );
-              });
+        });
+      });
+      describe("/articles", () => {
+        describe("/:articles_id", () => {
+          describe("GET", () => {
+            it("status:200, returns the relevent article", () => {
+              return request(app)
+                .get("/api/articles/3")
+                .expect(200)
+                .then(({ body }) => {
+                  expect(body.article).to.have.keys(
+                    "author",
+                    "title",
+                    "article_id",
+                    "body",
+                    "topic",
+                    "created_at",
+                    "votes",
+                    "comment_count"
+                  );
+                });
+            });
+            it("status:404, returns article not found when the the valid article number does not exist", () => {
+              return request(app)
+                .get("/api/articles/300000")
+                .expect(404)
+                .then(({ body }) => {
+                  expect(body.msg).to.equal("article not found");
+                });
+            });
+            it("status:400, returns error message when the given an invalid request", () => {
+              return request(app)
+                .get("/api/articles/30BassSAND")
+                .expect(400)
+                .then(({ body }) => {
+                  expect(body.msg).to.equal(
+                    'invalid input syntax for integer: "30BassSAND"'
+                  );
+                });
+            });
           });
         });
         describe("PATCH", () => {
