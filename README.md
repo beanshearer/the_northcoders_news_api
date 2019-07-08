@@ -1,6 +1,6 @@
 # Northcoders News
 
-Northcoders News stores Articles, Comments, Users, and Topics within a PostgresSQL database. The API allows you to request, modify and add to the database with the framework described in the Usage section. 
+Northcoders News is a web application that stores stores Articles, Comments, Users, and Topics within a PostgresSQL database. The API allows you to request, modify and add to the database with the framework described in the Usage section. 
 
 - Website hosted: https://the-northcoders-news.netlify.com/
 - API hosted: https://bens-northcoders-news.herokuapp.com/api/
