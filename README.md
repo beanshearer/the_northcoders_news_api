@@ -2,7 +2,9 @@
 
 Northcoders News stores Articles, Comments, Users, and Topics within a PostgresSQL database. The API allows you to request, modify and add to the database with the framework described in the Usage section. 
 
-Hosted: https://bens-northcoders-news.herokuapp.com/api/
+- Website hosted: https://the-northcoders-news.netlify.com/
+- API hosted: https://bens-northcoders-news.herokuapp.com/api/
+- Link to front-end git: https://github.com/beanshearer/the_northcoders_news.git
 
 ## Getting Started
 
@@ -395,7 +397,7 @@ npm util-test
 
 - Express.js - Back-end Framework
 - Knex.js - Query builder for SQL based databases
-- postgreSQL - Object-relational database management system
+- PostgreSQL - Object-relational database management system
 - Testing:
   - Mocha
   - Chai
