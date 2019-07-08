@@ -7,6 +7,12 @@ const {
   updatedComment,
   handleCommentToDelete
 } = require("../controllers/comments-controller");
+const routes = require("./routes.json")
+
+apiRouter
+  .route("/")
+  .get((req, res) => { res.send(routes) })
+  .all(methodNotAllowed);
 
 apiRouter.use("/topics", topicsRouter);
 
