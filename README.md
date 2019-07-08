@@ -1,12 +1,12 @@
 # Northcoders News
 
-Northcoders News stores Articles, Comments, Users, and Topics within a PostgresSQL database. The 
+Northcoders News stores Articles, Comments, Users, and Topics within a PostgresSQL database. The API allows you to request, modify and add to the database with the framework described in the Usage section. 
 
-NC News is a web application designed to act as a repository for news articles. The relational database stores the Articles, Comments, Topics, and Users.
-
-Hosted: https://mike-ns-news.herokuapp.com/
+Hosted: 
 
 ## Getting Started
+
+Once the prerequisites have been installed, follow the installation process to get a local version hosted on your computer. 
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ Install the dependencies
 npm install
 ```
 
-Run the database setup script
+Setup the database
 
 ```bash
 npm run setup:dbs
@@ -60,9 +60,8 @@ ctrl + c
 
 ### Usage
 
-Once the server is up and running the following endpoints and methods will be available.
+Once the prerequisites have been installed and the installation process has been completed, requests can be made to "localhost:9090". The GET requests can be made straight from the browser but all other requests should be made using a API testing tool such as Insomnia.
 
-Note: GET request can be ran from a browser using "localhost:9090" before an endpoint, however all other methods will require an API testing tool.
 
 - /api:
 
@@ -380,10 +379,16 @@ Note: GET request can be ran from a browser using "localhost:9090" before an end
 
 ### Running the tests
 
-In order to run the automated tests, you will need to run the "test" script
+In order to run the automated tests for the endpoints:
 
 ```bash
 npm test
+```
+
+In order to run the automated tests for the utility functions:
+
+```bash
+npm util-test
 ```
 
 ### Built with
@@ -394,6 +399,7 @@ npm test
 - Testing:
   - Mocha
   - Chai
+  - Chai-sorted
 
 ### Version
 
@@ -401,133 +407,8 @@ npm test
 
 ### Author
 
-Mike Frank (ladysneezes)
+Ben Shearer (beanshearer)
 
-### Acknowledgements
-
-# nc-news-mike
-
-## Available Scripts
-
-Create development and test databases locally:
-
-```bash
-npm run setup-dbs
-```
-
-Create a new migration file:
-
-```bash
-npm run migrate-make <filename>
-```
-
-Run all migrations:
-
-```bash
-npm run migrate-latest
-```
-
-Rollback all migrations:
-
-```bash
-npm run migrate-rollback
-```
-
-Run tests:
-
-```bash
-npm test
-```
-
-Rollback, migrate -> latest, then start inserting data into the database:
-
-```bash
-npm run seed
-```
-
-Run the server with `nodemon`, for hot reload:
-
-```bash
-npm run dev
-```
-
-Run the server with `node`:
-
-```bash
-npm start
-```
-
-
-# sup
-
-Northcoders News
-
-The Northcoders News API has been designed to send news articles and comments based on diffent paramenters such as different topics, author and amount of votes. The API can update the amount of votes as well as post and delete comments. The returned data is sent in an object with a key of the requested information and the value of the object with that information.
-
-Installation
-
-\$ npm i express knex pg
-
-\$ npm i -D chai chai-sorted mocha nodemon supertest
-
-Routes
-
-GET /api/topics
-
-GET /api/users/:username
-
-GET /api/articles/:article_id
-PATCH /api/articles/:article_id
-
-POST /api/articles/:article_id/comments
-GET /api/articles/:article_id/comments
-
-GET /api/articles
-
-PATCH /api/comments/:comment_id
-DELETE /api/comments/:comment_id
-
-GET /api
-
-Responces
-
-GET /api/topics
-
-Should send all of the topics in an array with the topuics as object with keys of 'slug' and 'description'. For example:
-
-{
-topics: [
-{
-slug: "coding",
-description: "Code is love, code is life"
-}
-]
-}
-
-GET /api/users/:username
-
-GET /api/articles/:article_id
-PATCH /api/articles/:article_id
-
-POST /api/articles/:article_id/comments
-GET /api/articles/:article_id/comments
-
-GET /api/articles
-
-PATCH /api/comments/:comment_id
-DELETE /api/comments/:comment_id
-
-GET /api
-
-Testing
-
-For the routes:
-
-\$ npm test
-
-For the functions used for seeding:
-
-\$ npm util-test
 
 ## Available Scripts
 
