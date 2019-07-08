@@ -2,7 +2,7 @@
 
 Northcoders News stores Articles, Comments, Users, and Topics within a PostgresSQL database. The API allows you to request, modify and add to the database with the framework described in the Usage section. 
 
-Hosted: 
+Hosted: https://bens-northcoders-news.herokuapp.com/api/
 
 ## Getting Started
 
